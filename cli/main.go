@@ -104,7 +104,7 @@ var usdtTransferCMD = &cobra.Command{
 			context.TODO(),
 			api,
 			-1,
-			usdtContractAdx,
+			[]string{usdtContractAdx},
 			topicsInterestedIn,
 			handler,
 			ethereum_watcher_patched.ReceiptLogWatcherConfig{
@@ -166,7 +166,7 @@ var contractEventListenerCMD = &cobra.Command{
 			context.TODO(),
 			api,
 			startBlockNum,
-			contractAdx,
+			[]string{contractAdx},
 			eventSigs,
 			handler,
 			ethereum_watcher_patched.ReceiptLogWatcherConfig{

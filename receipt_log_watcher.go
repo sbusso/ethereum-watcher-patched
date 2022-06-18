@@ -15,7 +15,7 @@ type ReceiptLogWatcher struct {
 	ctx                   context.Context
 	api                   string
 	startBlockNum         int
-	contract              string
+	contracts             []string
 	interestedTopics      []string
 	handler               func(from, to int, receiptLogs []blockchain.IReceiptLog, isUpToHighestBlock bool) error
 	config                ReceiptLogWatcherConfig
@@ -27,7 +27,7 @@ func NewReceiptLogWatcher(
 	ctx context.Context,
 	api string,
 	startBlockNum int,
-	contract string,
+	contracts []string,
 	interestedTopics []string,
 	handler func(from, to int, receiptLogs []blockchain.IReceiptLog, isUpToHighestBlock bool) error,
 	configs ...ReceiptLogWatcherConfig,
@@ -41,7 +41,7 @@ func NewReceiptLogWatcher(
 		ctx:                   ctx,
 		api:                   api,
 		startBlockNum:         startBlockNum,
-		contract:              contract,
+		contracts:             contracts,
 		interestedTopics:      interestedTopics,
 		handler:               handler,
 		config:                config,
@@ -137,7 +137,7 @@ func (w *ReceiptLogWatcher) Run() error {
 				to = highestBlockCanProcess
 			}
 
-			logs, err := rpc.GetLogs(uint64(blockNumToBeProcessedNext), uint64(to), []string{w.contract}, w.interestedTopics)
+			logs, err := rpc.GetLogs(uint64(blockNumToBeProcessedNext), uint64(to), w.contracts, w.interestedTopics)
 			if err != nil {
 				return err
 			}
