@@ -1,4 +1,4 @@
-module github.com/rakshasa/ethereum-watcher
+module github.com/sbusso/ethereum-watcher-patched
 
 go 1.16
 

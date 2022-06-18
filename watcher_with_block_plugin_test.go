@@ -1,11 +1,12 @@
-package ethereum_watcher
+package ethereum_watcher_patched
 
 import (
 	"context"
-	"github.com/rakshasa/ethereum-watcher/plugin"
-	"github.com/rakshasa/ethereum-watcher/structs"
-	"github.com/sirupsen/logrus"
 	"testing"
+
+	"github.com/sbusso/ethereum-watcher-patched/plugin"
+	"github.com/sbusso/ethereum-watcher-patched/structs"
+	"github.com/sirupsen/logrus"
 )
 
 func TestNewBlockNumPlugin(t *testing.T) {

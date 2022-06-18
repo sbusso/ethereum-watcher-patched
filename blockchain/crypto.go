@@ -4,8 +4,9 @@ import (
 	"crypto/ecdsa"
 	"crypto/elliptic"
 	"fmt"
-	"github.com/rakshasa/ethereum-watcher/utils"
+
 	"github.com/btcsuite/btcd/btcec"
+	"github.com/sbusso/ethereum-watcher-patched/utils"
 	"golang.org/x/crypto/sha3"
 )
 

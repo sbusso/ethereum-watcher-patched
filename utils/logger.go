@@ -15,7 +15,7 @@ var (
 )
 
 func init() {
-	switch os.Getenv("ETHEREUM_WATCHER_LOG_LEVEL") {
+	switch os.Getenv("ethereum_watcher_patched_LOG_LEVEL") {
 	case "FATAL":
 		logLevel = logrus.FatalLevel
 	case "ERROR":

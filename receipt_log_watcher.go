@@ -1,4 +1,4 @@
-package ethereum_watcher
+package ethereum_watcher_patched
 
 import (
 	"context"
@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/rakshasa/ethereum-watcher/blockchain"
-	"github.com/rakshasa/ethereum-watcher/rpc"
+	"github.com/sbusso/ethereum-watcher-patched/blockchain"
+	"github.com/sbusso/ethereum-watcher-patched/rpc"
 	"github.com/sirupsen/logrus"
 )
 
@@ -149,7 +149,7 @@ func (w *ReceiptLogWatcher) Run() error {
 					err := w.handler(blockNumToBeProcessedNext, to, nil, isUpToHighestBlock)
 					if err != nil {
 						logrus.Infof("err when handling nil receipt log, block range: %d - %d", blockNumToBeProcessedNext, to)
-						return fmt.Errorf("ethereum_watcher handler(nil) returns error: %s", err)
+						return fmt.Errorf("ethereum_watcher_patched handler(nil) returns error: %s", err)
 					}
 				}
 			} else {
@@ -160,7 +160,7 @@ func (w *ReceiptLogWatcher) Run() error {
 						blockNumToBeProcessedNext, to, logs,
 					)
 
-					return fmt.Errorf("ethereum_watcher handler returns error: %s", err)
+					return fmt.Errorf("ethereum_watcher_patched handler returns error: %s", err)
 				}
 			}
 

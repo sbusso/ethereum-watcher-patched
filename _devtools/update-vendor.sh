@@ -15,7 +15,7 @@ cd "${project_root}"
 rm -rf ./go.mod ./go.sum
 
 go clean -cache
-go mod init github.com/rakshasa/ethereum-watcher
+go mod init github.com/sbusso/ethereum-watcher-patched
 
 for dep in "${dependencies[@]}"; do
   go get "${dep}"

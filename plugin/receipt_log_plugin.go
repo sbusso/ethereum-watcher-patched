@@ -1,8 +1,9 @@
 package plugin
 
 import (
-	"github.com/rakshasa/ethereum-watcher/structs"
 	"strings"
+
+	"github.com/sbusso/ethereum-watcher-patched/structs"
 )
 
 type IReceiptLogPlugin interface {

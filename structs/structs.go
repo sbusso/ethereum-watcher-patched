@@ -1,7 +1,7 @@
 package structs
 
 import (
-	"github.com/rakshasa/ethereum-watcher/blockchain"
+	"github.com/sbusso/ethereum-watcher-patched/blockchain"
 )
 
 type RemovableBlock struct {

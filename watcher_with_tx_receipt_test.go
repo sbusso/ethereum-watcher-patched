@@ -1,15 +1,16 @@
-package ethereum_watcher
+package ethereum_watcher_patched
 
 import (
 	"context"
 	"fmt"
-	"github.com/rakshasa/ethereum-watcher/blockchain"
-	"github.com/rakshasa/ethereum-watcher/plugin"
-	"github.com/rakshasa/ethereum-watcher/structs"
+	"testing"
+
 	"github.com/labstack/gommon/log"
+	"github.com/sbusso/ethereum-watcher-patched/blockchain"
+	"github.com/sbusso/ethereum-watcher-patched/plugin"
+	"github.com/sbusso/ethereum-watcher-patched/structs"
 	"github.com/shopspring/decimal"
 	"github.com/sirupsen/logrus"
-	"testing"
 )
 
 // todo why some tx index in block is zero?

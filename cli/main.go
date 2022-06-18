@@ -3,14 +3,15 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/rakshasa/ethereum-watcher"
-	"github.com/rakshasa/ethereum-watcher/blockchain"
-	"github.com/rakshasa/ethereum-watcher/plugin"
-	"github.com/rakshasa/ethereum-watcher/rpc"
-	"github.com/sirupsen/logrus"
-	"github.com/spf13/cobra"
 	"os"
 	"os/signal"
+
+	ethereum_watcher_patched "github.com/sbusso/ethereum-watcher-patched"
+	"github.com/sbusso/ethereum-watcher-patched/blockchain"
+	"github.com/sbusso/ethereum-watcher-patched/plugin"
+	"github.com/sbusso/ethereum-watcher-patched/rpc"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
 )
 
 const (
@@ -52,7 +53,7 @@ var blockNumCMD = &cobra.Command{
 		c := make(chan os.Signal, 1)
 		signal.Notify(c, os.Interrupt)
 
-		w := ethereum_watcher.NewHttpBasedEthWatcher(ctx, api)
+		w := ethereum_watcher_patched.NewHttpBasedEthWatcher(ctx, api)
 
 		logrus.Println("waiting for new block...")
 		w.RegisterBlockPlugin(plugin.NewBlockNumPlugin(func(i uint64, b bool) {
@@ -99,14 +100,14 @@ var usdtTransferCMD = &cobra.Command{
 			return nil
 		}
 
-		receiptLogWatcher := ethereum_watcher.NewReceiptLogWatcher(
+		receiptLogWatcher := ethereum_watcher_patched.NewReceiptLogWatcher(
 			context.TODO(),
 			api,
 			-1,
 			usdtContractAdx,
 			topicsInterestedIn,
 			handler,
-			ethereum_watcher.ReceiptLogWatcherConfig{
+			ethereum_watcher_patched.ReceiptLogWatcherConfig{
 				StepSizeForBigLag:               5,
 				IntervalForPollingNewBlockInSec: 5,
 				RPCMaxRetry:                     3,
@@ -123,7 +124,7 @@ var contractEventListenerCMD = &cobra.Command{
 	Short: "listen and print events from contract",
 	Example: `
   listen to Transfer & Approve events from Multi-Collateral-DAI
-  
+
   /bin/ethereum-watcher contract-event-listener \
     --block-backoff 100
     --contract 0x6b175474e89094c44da98b954eedeac495271d0f \
@@ -161,14 +162,14 @@ var contractEventListenerCMD = &cobra.Command{
 			}
 		}
 
-		receiptLogWatcher := ethereum_watcher.NewReceiptLogWatcher(
+		receiptLogWatcher := ethereum_watcher_patched.NewReceiptLogWatcher(
 			context.TODO(),
 			api,
 			startBlockNum,
 			contractAdx,
 			eventSigs,
 			handler,
-			ethereum_watcher.ReceiptLogWatcherConfig{
+			ethereum_watcher_patched.ReceiptLogWatcherConfig{
 				StepSizeForBigLag:               5,
 				IntervalForPollingNewBlockInSec: 5,
 				RPCMaxRetry:                     3,

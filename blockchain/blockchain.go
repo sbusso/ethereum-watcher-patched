@@ -3,12 +3,13 @@ package blockchain
 import (
 	"errors"
 	"fmt"
-	"github.com/rakshasa/ethereum-watcher/utils"
-	"github.com/labstack/gommon/log"
-	"github.com/onrik/ethrpc"
-	"github.com/shopspring/decimal"
 	"math/big"
 	"strconv"
+
+	"github.com/labstack/gommon/log"
+	"github.com/onrik/ethrpc"
+	"github.com/sbusso/ethereum-watcher-patched/utils"
+	"github.com/shopspring/decimal"
 )
 
 type BlockChain interface {

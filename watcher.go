@@ -1,4 +1,4 @@
-package ethereum_watcher
+package ethereum_watcher_patched
 
 import (
 	"container/list"
@@ -8,11 +8,11 @@ import (
 	"time"
 
 	"github.com/onrik/ethrpc"
-	"github.com/rakshasa/ethereum-watcher/blockchain"
-	"github.com/rakshasa/ethereum-watcher/plugin"
-	"github.com/rakshasa/ethereum-watcher/rpc"
-	"github.com/rakshasa/ethereum-watcher/structs"
-	"github.com/rakshasa/ethereum-watcher/utils"
+	"github.com/sbusso/ethereum-watcher-patched/blockchain"
+	"github.com/sbusso/ethereum-watcher-patched/plugin"
+	"github.com/sbusso/ethereum-watcher-patched/rpc"
+	"github.com/sbusso/ethereum-watcher-patched/structs"
+	"github.com/sbusso/ethereum-watcher-patched/utils"
 	"github.com/sirupsen/logrus"
 )
 
